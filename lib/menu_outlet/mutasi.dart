@@ -30,6 +30,13 @@ class _MutasiState extends State<Mutasi> {
     super.initState();
   }
 
+  var dropdownvalue = 'Nama Outlet';
+  var items = [
+    'Nama Outlet',
+    'Nama Outlet',
+    'Nama Outlet',
+    'Nama Outlet',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +53,28 @@ class _MutasiState extends State<Mutasi> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white, //<-- SEE HERE
+              ),
+              child: DropdownButton(
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(
+                        items,
+                        style: TextStyle(color: kPrimaryColor),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  }),
+            ),
             Form(
               key: _formkey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -100,7 +129,7 @@ class _MutasiState extends State<Mutasi> {
               ),
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: 300),
 
             //tombol "SUBMIT"
 

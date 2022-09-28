@@ -185,10 +185,10 @@ class _HomeState extends State<Home> {
                                 Navigator.of(context)
                                     .pushNamed(Pindah.routeName);
                               }
-                              if (index == 3) {
-                                Navigator.of(context)
-                                    .pushNamed(Mutasi.routeName);
-                              }
+                              // if (index == 3) {
+                              //   Navigator.of(context)
+                              //       .pushNamed(Mutasi.routeName);
+                              // }
                               if (index == 4) {
                                 Navigator.of(context).pushNamed(Kurs.routeName);
                               }
